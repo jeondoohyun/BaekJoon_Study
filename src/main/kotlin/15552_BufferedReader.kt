@@ -4,7 +4,7 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.lang.Exception
 
-// Scanner, println, readLine등은 비효율적으로 느리다.
+// Scanner, println, readLine등은 비효율적으로 느리다. Scanner와 다르게 BufferedReader.readLine은 엔터로만 입력 완료된다(스페이스는 안됨)
 fun main(args: Array<String>) {
     try {
         val br = BufferedReader(InputStreamReader(System.`in`))

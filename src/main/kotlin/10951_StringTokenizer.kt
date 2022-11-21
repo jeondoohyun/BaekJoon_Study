@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 
         while (br.readLine().also { input = it } != null && input != "") {     // 입력이 있을때만 실행, null 대신 ""을 넣으면 콘솔에서도 정답이긴함. "" 넣으면 백준에서 npe 뜸
             val tokenizer = StringTokenizer(input)  // StringTokenizer는 문자열을 쪼갠다, 미지정시 공백을 기준으로 쪼갬
-            val num_first = tokenizer.nextToken().toInt()   // nextToken은 쪼개진 문자열을 처음부터 하나씩 꺼냄
+            val num_first = tokenizer.nextToken().toInt()   // nextToken은 쪼개진 문자열을 처음부터 하나씩 꺼냄, 쪼개진 문자열이 2개인데 nextToken()을 3개 호출하면 에러
             val num_second = tokenizer.nextToken().toInt()
             bw.write("${num_first + num_second}\n")
         }
