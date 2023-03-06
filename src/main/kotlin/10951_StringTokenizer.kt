@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
         var br = BufferedReader(InputStreamReader(System.`in`))
         var bw = BufferedWriter(OutputStreamWriter(System.out))
 
-        var input: String?
+        var input: String?  // input에 ""을 넣으면 npe가 뜬다. 왜지?
 
         while (br.readLine().also { input = it } != null && input != "") {     // 입력이 있을때만 실행, null 대신 ""을 넣으면 콘솔에서도 정답이긴함. "" 넣으면 백준에서 npe 뜸
             val tokenizer = StringTokenizer(input)  // StringTokenizer는 문자열을 쪼갠다, 미지정시 공백을 기준으로 쪼갬
