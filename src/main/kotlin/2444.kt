@@ -15,21 +15,11 @@ fun main(args:Array<String>) {
         var stringBuffer = StringBuffer()
         for (i in 1 ..line_cnt) {
             if (i <= input_cnt) {
-                for (j in input_cnt-i downTo 1) {
-                    stringBuffer.append(" ")
-                }
-
-                for (k in 1 .. 2 * i -1) {
-                    stringBuffer.append("*")
-                }
+                for (j in input_cnt-i downTo 1) stringBuffer.append(" ")
+                for (k in 1 .. 2 * i -1) stringBuffer.append("*")
             } else {
-                for (j in 1 .. i-input_cnt) {
-                    stringBuffer.append(" ")
-                }
-
-                for (k in 1 .. (line_cnt - i) * 2 + 1 ) {
-                    stringBuffer.append("*")
-                }
+                for (j in 1 .. i-input_cnt) stringBuffer.append(" ")
+                for (k in 1 .. (line_cnt - i) * 2 + 1 ) stringBuffer.append("*")
             }
             stringBuffer.append("\n")
         }
