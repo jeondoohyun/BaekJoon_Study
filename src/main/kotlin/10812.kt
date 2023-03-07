@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
         bw.flush()
 
     } catch (e: Exception) {
-
+        println(e.printStackTrace())
     }
 
 }
