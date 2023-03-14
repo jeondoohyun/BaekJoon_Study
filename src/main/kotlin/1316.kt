@@ -13,11 +13,11 @@ fun main(args:Array<String>) {
         var groupWordCnt = 0
 
         var list = ArrayList<String>()  // 문자가 중복되는지 확인하는 배열
-        var check = true
+        var check:Boolean
         for (i in 1 .. N) {
             list.removeAll(list)
+            check = true
             var inputWord = br.readLine().toString()
-//            println("$inputWord")
             run {
                 inputWord.forEach {
                     if (!list.contains(it.toString())) {
