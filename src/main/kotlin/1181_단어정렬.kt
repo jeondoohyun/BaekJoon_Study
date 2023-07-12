@@ -9,7 +9,7 @@ fun main() = with(System.out.bufferedWriter()) {
     // 받으면서 정렬하는게 아니고 다 받고나서 정렬
     val br = BufferedReader(InputStreamReader(System.`in`))
     var t = Integer.parseInt(br.readLine())
-    val set = mutableSetOf<String>()    // 중복데이터를 허용하지 않는다
+    val set = mutableSetOf<String>()    // set은 중복데이터를 허용하지 않는다, 중복이면 하나는 잘린다
     for (i in 0 until t) {
         set.add(br.readLine())
     }
