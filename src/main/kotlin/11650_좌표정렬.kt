@@ -11,9 +11,23 @@ fun main() = with(System.out.bufferedWriter()) {
     for (i in 0 until N) {
         var coor_ = br.readLine().split(" ")
         XY_List.add(XY(coor_[0].toInt(), coor_[1].toInt()))
-//        println("${coor_[0].toInt()}, ${coor_[1].toInt()}")
     }
-    // todo : x,y 좌표 각각 비교해서 정렬
 
+    val result = XY_List.sortedWith(Comparator { a, b ->
+        // a가 b보다 작을때 -1을 반환하면 오름차순으로 정렬됨
+        when {
+            a.x < b.x -> -1
+            a.x == b.x -> when {    // x좌표가 같을땐 y기준으로 오름차순 정렬
+                a.y < b.y -> -1
+                else -> 1
+            }
+            else -> 1
+        }
+    })
 
+    for (item in result) {
+        write("${item.x} ${item.y}\n")
+    }
+    flush()
+    close()
 }

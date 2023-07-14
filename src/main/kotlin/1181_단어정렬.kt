@@ -9,11 +9,11 @@ fun main() = with(System.out.bufferedWriter()) {
     // 받으면서 정렬하는게 아니고 다 받고나서 정렬
     val br = BufferedReader(InputStreamReader(System.`in`))
     var t = Integer.parseInt(br.readLine())
-    val set = mutableSetOf<String>()    // set은 중복데이터를 허용하지 않는다, 중복이면 하나는 잘린다
+    val set_data = mutableSetOf<String>()    // set은 중복데이터를 허용하지 않는다, 중복이면 하나는 잘린다
     for (i in 0 until t) {
-        set.add(br.readLine())
+        set_data.add(br.readLine())
     }
-    val resultSet = set.sortedWith(Comparator { a, b ->
+    val resultSet = set_data.sortedWith(Comparator { a, b ->
         // 글자수를 우선적으로 확인한다. 글자수가 같을때는 a,b 아스키코드순 (알파벳순)으로 오름차순으로 정렬
         // a가 b보다 작을때 -1을 반환하면 오름차순으로 정렬됨
         when {
