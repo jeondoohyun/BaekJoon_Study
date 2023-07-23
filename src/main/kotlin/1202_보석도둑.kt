@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
             else -> -1
         }
     })
-    // todo : 우선순위큐로 가격기준으로 내림차순 정렬이 안됨ㅠ
+    // todo : 우선순위큐로 가격기준으로 내림차순 정렬이 안됨ㅠㅇㅇ
 
     print("${queue2.toString()}")
 
