@@ -29,30 +29,20 @@ fun main(args: Array<String>) {
 
     C.sort()
 
-    var arr_2 = arr.sortedWith(Comparator { t, t2 ->
-        when {
-            t.M < t2.M -> -1
-            t.M == t2.M -> when {
-                t.V < t2.V -> 1
-                else -> -1
-            }
-            else -> 1
-        }
+    val arr_2 = arr.sortedWith(Comparator { j1, j2 ->
+        // when문법대신 이렇게 정렬하면 심플함
+        if (j1.M == j2.M) {
+            j2.V - j1.V // V를 내림차순
+        } else j1.M - j2.M// M을 오름차순
     })
 
-    var result = 0
+    var result: Long = 0
     var num = 0
 
     C.forEach {a ->
         run {
-//            arr_2.forEach {b ->
-//                if (a >= b.M) {
-//                    result += b.V
-//                    return@run
-//                } else return@run
-//            }
             for (i in num until arr_2.size) {
-                if (a >= arr_2[num].M) {
+                if (a >= arr_2[num].M) {    // a무게 가방에 들어가는 보석들을 다 pq에 추가 한다음에 가격 내림차순 정렬된 pq에서 가장 비싼거를 하나 우선순위큐에서 뽑는다, 그러면 각 무게에서 가장 비싼 보석을 뽑아 최대값구하기 가능
                     pq.offer(arr_2[i].V)
                     num++
                 } else {
@@ -62,7 +52,7 @@ fun main(args: Array<String>) {
         }
 
         if (!pq.isEmpty()) {
-            result += pq.poll()
+            result += pq.poll() // poll()을 하여 값을 뽑으면 뽑힌 값은 pq에서 사라짐
         }
     }
 
