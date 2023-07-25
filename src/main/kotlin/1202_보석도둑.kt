@@ -53,6 +53,7 @@ fun main(args: Array<String>) {
 
         if (!pq.isEmpty()) {
             result += pq.poll() // poll()을 하여 값을 뽑으면 뽑힌 값은 pq에서 사라짐
+            // result 결과 값이 보석과 배낭 갯수 <300000, 가격<1000000 으로 가격 총합이 int범위를 초과 할수 있기 때문에 long으로 처리 한다
         }
     }
 
