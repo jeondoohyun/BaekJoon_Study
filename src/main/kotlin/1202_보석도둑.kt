@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
     C.sort()
 
     val arr_2 = arr.sortedWith(Comparator { j1, j2 ->
-        // when문법대신 이렇게 정렬하면 심플함
+        // when문법대신 이렇게 정렬하면 심플함, when대신 아래처럼 하니까 IllegalArgument에러 안뜸
         if (j1.M == j2.M) {
             j2.V - j1.V // V를 내림차순
         } else j1.M - j2.M// M을 오름차순
