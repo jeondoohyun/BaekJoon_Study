@@ -8,21 +8,18 @@ fun main(args: Array<String>) {
     val bw = BufferedWriter(OutputStreamWriter(System.out))
 
     var N_K = br.readLine().split(" ").map { it.toInt() }
-    var sb = StringBuffer()
+    var array = mutableListOf<Int>()
 
     for (i in 1 .. N_K[0]) {
-        if ((N_K[0] % i)==0 &&
-                i==N_K[1]) {
-            sb.append(i.toString())
-            break
+        if ((N_K[0] % i)==0) {
+            array.add(i)
+            if (array.size == N_K[1]) break
         }
     }
 
-    if (sb.isEmpty()) sb.append("0")
-
-    bw.write(sb.toString())
+    if (array.size < N_K[1]) bw.write("0")
+    else bw.write("${array[N_K[1]-1]}")
     bw.flush()
     bw.close()
 
-    // todo : 백준 제출 하면 틀렸다고 나옴
 }
