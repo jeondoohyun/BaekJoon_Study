@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
 
     var T = br.readLine().toInt()
 
+
     var stringBuffer = StringBuffer()
 
     for (i in 0 until T) {
