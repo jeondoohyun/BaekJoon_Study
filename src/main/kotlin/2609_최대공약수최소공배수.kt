@@ -29,7 +29,7 @@ fun GCD(n1: Int, n2: Int): Int {
     return if (n2 == 0) {   // n2로 들어오는 수는 n1 % n2(n1을 n2로 나눴을때의 나머지값)
         n1
     } else {
-        GCD(n2, n1 % n2)
+        GCD(n2, n1 % n2)  // 재귀 함수를 재호출할때 인자 값을 바꿔가며 재호출
     }
 }
 
