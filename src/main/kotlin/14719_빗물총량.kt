@@ -40,7 +40,6 @@ fun main(args: Array<String>) {
             }
         }
 
-
         bw.write("$sum")
         bw.flush()
         bw.close()
