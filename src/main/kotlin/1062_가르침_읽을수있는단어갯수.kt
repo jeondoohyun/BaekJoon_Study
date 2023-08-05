@@ -5,6 +5,8 @@ import java.io.OutputStreamWriter
 import java.lang.Exception
 
 fun main(args: Array<String>) {
+    // 브루트포스 알고리즘, 미트마스킹, 백트래킹
+
     try {
         var ess_char = charArrayOf('a','n','t','i','c') // char는 작은 따옴표 사용
 
@@ -35,6 +37,8 @@ fun main(args: Array<String>) {
                 println(st_sub)
             }
         }
+
+
 
 
 
