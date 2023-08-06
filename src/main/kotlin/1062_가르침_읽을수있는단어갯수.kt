@@ -1,4 +1,9 @@
 import kotlin.math.*
+
+// 브루트포스 알고리즘
+//비트마스킹
+//백트래킹
+
 val br = System.`in`.bufferedReader()
 
 //1<=n<=50
