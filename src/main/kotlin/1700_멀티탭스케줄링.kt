@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
                     if (multitab[products[next]] && products[next] !in reuse_arr) reuse_arr.add(products[next]) // reuse에 중복되면 추가를 안하기 때문에 reuse가 n값보다 커질수가 없다
                 }
 
-                if (reuse_arr.size != n) {
+                if (reuse_arr.size < n) {
                     for (del in 0 until products.size) {
                         if (multitab[del] && del !in reuse_arr) { multitab[del] = false;break }
                     }
@@ -39,6 +39,7 @@ fun main(args: Array<String>) {
                 cnt++
             }
         }
+
 
         bw.write("$cnt")
         bw.flush()
