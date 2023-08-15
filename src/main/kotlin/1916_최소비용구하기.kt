@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
     }
 }
 
-fun cost() {
+fun cost() {    // 재귀함수를 사용하여 최소값 구해보기
 //    if ()
     for ()
 
