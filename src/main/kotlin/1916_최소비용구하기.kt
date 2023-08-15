@@ -4,6 +4,10 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.lang.Exception
 
+var size_busInfo = 0
+var min_bus = 100000
+var start = 0
+var end = 0
 fun main(args: Array<String>) {
     try {
         val br = BufferedReader(InputStreamReader(System.`in`))
@@ -22,10 +26,11 @@ fun main(args: Array<String>) {
             var bus = br.readLine().split(" ").map { it.toInt() }.toIntArray()
             bus_info[index] = bus
         }
+        size_busInfo = bus_info.size
 
         var a = br.readLine().split(" ").map { it.toInt() }
-        var start = a[0] // 출발 도시
-        var end = a[1]  // 도착 도시
+        start = a[0] // 출발 도시
+        end = a[1]  // 도착 도시
 
 
 
@@ -34,4 +39,11 @@ fun main(args: Array<String>) {
     } catch (e: Exception) {
         e.printStackTrace()
     }
+}
+
+fun cost() {
+//    if ()
+    for ()
+
+
 }
