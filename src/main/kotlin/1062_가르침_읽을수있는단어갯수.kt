@@ -3,6 +3,7 @@ import kotlin.math.*
 // 브루트포스 알고리즘 (전체탐색)
 //비트마스킹
 //백트래킹
+// 재귀함수
 
 val br = System.`in`.bufferedReader()
 
