@@ -12,6 +12,8 @@ var mid = 0 // 통과 도시
 var end = 0 // 도착 도시
 var ing = false
 var price_total = 0
+
+// 다익스트라 알고리즘
 fun main(args: Array<String>) {
     try {
         val br = BufferedReader(InputStreamReader(System.`in`))
@@ -88,7 +90,7 @@ fun cost(index: Int, flag_result: Boolean) {    // 재귀함수를 사용하여 
                 mid = bus_info[i+1][1]
                 conn = true // 이전 버스 도착점과 다음 버스 시작점 같을때 연결되어 있을때만 재귀호출에서 도착점에 도착하면 min_price을 구한다
             }
-            cost(i+1, conn)
+            cost(i+1, conn) // 재귀호출을 하여 return을 받은 재귀호출만 return 처리가 되고  아래로 내려가서 mid=0, price_totla=0이 된다,
         }
 //        ing = false
         mid = 0
