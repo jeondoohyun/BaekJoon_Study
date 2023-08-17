@@ -22,11 +22,11 @@ fun main() {
 
     repeat(m) {
         val abw = br.readLine().split(" ").map { it.toInt() }
-        val a = abw[0] - 1
+        val a = abw[0] - 1  // 인덱스로 쓰기 때문에 -1
         val b = abw[1] - 1
         val w = abw[2]
 
-        weight[a][b] = min(weight[a][b], w)
+        weight[a][b] = min(weight[a][b], w) // weight에 이용요금을 넣어준다. 초기화값으로 MAX_VALUE값이 초기값이기 때문에 작은값 비교 하면 무조건 w가 들어감
     }
 
     repeat(n) {
