@@ -65,6 +65,7 @@ fun cost(index: Int, flag_result: Boolean) {    // 재귀함수를 사용하여 
         return
     }
 
+
     if (index == size_busInfo-1) {
         return
     }
