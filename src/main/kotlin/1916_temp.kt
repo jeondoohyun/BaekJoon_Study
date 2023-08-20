@@ -56,7 +56,6 @@ private fun getSmallIndex(): Int {
     return index
 }
 
-
 private fun dijkstra(start: Int) {
     for (i in 0 until n) distance[i] = weight[start][i]
 
