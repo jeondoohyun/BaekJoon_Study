@@ -20,8 +20,8 @@ fun main(args: Array<String>) {
         var cnt = 0
         run {
             while (i < input.length) {
-                var char_ascii = input[i].toInt()   // 문자(char)를 toInt()하면 아스키코드로 전환, 문자열(string)을 toInt()하면 숫자로 변환
-                if (char_ascii in 48..57) { // 문자가 숫자일경우
+                // 문자(char)를 toInt()하면 아스키코드로 전환, 문자열(string)을 toInt()하면 숫자로 변환
+                if (input[i].toInt() in 48..57) { // 문자가 숫자일경우
                     cnt++
                     if (input[i+1].toInt() in 48 .. 57) {   // 2자리 숫자일 경우
                         var num = ("${input[i]}" + "${input[i+1]}").toInt()
