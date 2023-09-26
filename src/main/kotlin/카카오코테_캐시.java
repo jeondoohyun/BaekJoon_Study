@@ -7,7 +7,7 @@ public class 카카오코테_캐시 {
         int result = 0;
         try {
 
-            Queue<String> queue = new LinkedList<>();
+            Queue<String> queue = new LinkedList<>();   // 큐 사용
 
             for (int i = 0; i < cities.length; i++) {
                 cities[i] = cities[i].toUpperCase();
