@@ -2,11 +2,12 @@ import java.util.*;
 
 public class 카카오코테_셔틀버스 {
     public static void main(String[] args) {
+        
         int n = 10;
         int t = 60;
         int m = 45;  // 버스탑승 제한수
         String[] timetable = {"23:59","23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59"};
-        
+
         PriorityQueue<Integer> queue = new PriorityQueue<>();
 
         for (String e : timetable) {
