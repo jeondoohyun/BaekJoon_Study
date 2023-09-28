@@ -15,8 +15,8 @@ fun main(args: Array<String>) {
         val bw = BufferedWriter(OutputStreamWriter(System.out))
 
         var h_w = br.readLine().split(" ").map { it.toInt() }
-        w = h_w[1]
-        h = h_w[0]
+        w = h_w[1]  // 가로
+        h = h_w[0]  // 세로
         var h_temp = br.readLine().split(" ").map { it.toInt() }
         var sum = 0
 

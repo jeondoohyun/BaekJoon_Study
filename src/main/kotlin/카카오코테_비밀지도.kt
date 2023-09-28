@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
         var arr2 = br.readLine().split(" ").map { it.toInt() }
 
         for (i in 0 until n) {
-            result.add(arr1[i] or arr2[i])  // 비트연산
+            result.add(arr1[i] or arr2[i])  // 비트 or 연산
         }
 
         var sb = StringBuffer()

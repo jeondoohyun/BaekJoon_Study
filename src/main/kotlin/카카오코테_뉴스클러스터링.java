@@ -37,6 +37,7 @@ public class 카카오코테_뉴스클러스터링 {
         }
         retain.retainAll(str2_arr);   // 교집합 계산
 
+        // 합집합 구할때 원소가 더 많은 집합을 기준으로 다른 집합을 추가한다. 원소가 더 많은 집합이 뭔지 str1, str2비교
         if (str1_arr.size() >= str2_arr.size()) addAll.addAll(str1_arr);
         else {
             addAll.addAll(str2_arr);
@@ -44,7 +45,7 @@ public class 카카오코테_뉴스클러스터링 {
             str2_arr.addAll(str1_arr);
         }
         for (int j=0 ; j < str2_arr.size() ; j++) {
-            if (!addAll.contains(str2_arr.get(j))) {
+            if (!addAll.contains(str2_arr.get(j))) {    // addAll 컬렉션에는 원소가 더 많은 집합(str1 or str2)가 들어있음. addAll에 포함 안된 원소는 추가 하여 합집합을 구한다.
                 addAll.add(str2_arr.get(j));    // 합집합 추가
             }
         }
