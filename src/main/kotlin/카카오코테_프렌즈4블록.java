@@ -204,7 +204,98 @@ class Solution {
 
 // 내가 다시 풀어본 문제
 class 내가다시 {
+    static ArrayList<ArrayList<XYData2>> coordinates = new ArrayList<>();
+    static int result = 0;
     public static void main(String[] args) {
-        
+
+        int m = 6;  // 높이
+        int n = 6;  // 폭
+        String[] board = {"TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"};
+
+
+        for (int j=0; j<m; j++) {
+            coordinates.add(new ArrayList<>());
+            for (int i = 0; i < n; i++) {
+                char a = board[j].toCharArray()[i];
+                coordinates.get(j).add(new XYData2(a, true));   // true가 기본값
+            }
+        }
+
+        while (deleteBlock(m, n)) {
+            for (int i=0; i<m; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(coordinates.get(i).get(j).data);
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+            moveBlock(m, n);
+            for (int i=0; i<m; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(coordinates.get(i).get(j).data);
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+
+        System.out.println(result);
+    }
+
+    public static boolean deleteBlock(int height, int width) {
+        // 2중 반복문 돌릴땐 j가 안쪽에서 반복되는데 이것이 x,y좌표로 칠때 y이다. 그래서 헷갈림. 안쪽 반복문에 x가 반영되도록 짜야됨.
+        boolean isdel = false;
+        for (int i=0; i<height; i++) {
+            for (int j=0; j<width; j++) {
+                if (i<coordinates.size()-1 && j<coordinates.get(i).size()-1) {  // indexOutofBound 방지, todo moveBlock()에서 데이터 옮긴후 0으로 채울거기때문에 데이터만으로 비교 가능
+                    if (coordinates.get(i).get(j).data == '0') continue;
+                    if (coordinates.get(i).get(j).data == coordinates.get(i).get(j+1).data &&
+                            coordinates.get(i).get(j).data == coordinates.get(i+1).get(j+1).data &&
+                            coordinates.get(i).get(j).data == coordinates.get(i+1).get(j).data) {
+                        coordinates.get(i).get(j).exist = false;
+                        coordinates.get(i).get(j+1).exist = false;
+                        coordinates.get(i+1).get(j).exist = false;
+                        coordinates.get(i+1).get(j+1).exist = false;
+                        isdel = true;
+                    }
+                }
+            }
+        }
+        return isdel;
+    }
+
+    public static void moveBlock(int height, int width) {
+        Queue<Character> queue = new LinkedList<>();
+        for (int i = 0; i < width; i++) {  // 가로
+            for (int j = height - 1; j >= 0; j--) {
+                if (coordinates.get(j).get(i).exist) {  // result값을 증가시키는 기준이 exist기 때문에 증가시키고 true로 초기화해준다.
+                    queue.add(coordinates.get(j).get(i).data);
+                } else {    // 데이터가 없을때, result를 증가
+                    result++;
+                    coordinates.get(j).get(i).exist = true;
+                }
+            }
+
+            for (int j = height - 1; j >= 0; j--) {
+                if (!queue.isEmpty()) {
+                    coordinates.get(j).get(i).data = queue.poll();
+                } else {
+                    coordinates.get(j).get(i).data = '0';
+                }
+            }
+        }
     }
 }
+class XYData2 {
+    char data;
+    boolean exist;
+    XYData2(char data, boolean exist) {
+        this.data = data;
+        this.exist = exist;
+    }
+}
+
+
+
+
