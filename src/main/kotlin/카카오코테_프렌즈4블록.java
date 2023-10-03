@@ -124,7 +124,6 @@ class XYData {
 
 
 // 다른 풀이
-
 class Solution {
     static boolean v[][];   // 체크 배열
 
