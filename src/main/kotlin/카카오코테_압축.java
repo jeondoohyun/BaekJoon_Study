@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class 카카오코테_압축 {
     public static void main(String[] args) {
 
         // 압축 알고리즘 종류는?
-
 
         String msg = "TOBEORNOTTOBEORTOBEORNOT";
 //        String msg = "KAKAO";
@@ -44,6 +42,7 @@ public class 카카오코테_압축 {
             dictionary.add(a);
         }
 
+        // arraylist to array
         int [] answer = new int[answer_arr.size()];
         for (int i=0; i< answer_arr.size(); i++) {
             answer[i] = answer_arr.get(i);
@@ -53,3 +52,81 @@ public class 카카오코테_압축 {
         System.out.println(Arrays.toString(answer));
     }
 }
+
+class 압축_다른풀이 {
+    static HashMap<String, Integer> dict = new HashMap<>();
+    public static void main(String[] args) {
+        String msg = "ABABC";
+
+        int[] answer;
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        int dictIdx = 1;
+        for(int i='A'; i<='Z'; i++){
+            dict.put( String.valueOf((char)i), dictIdx++) ;
+        }
+
+        int idx = 0;
+        while(idx < msg.length()){
+            String w = "";
+            while(idx < msg.length()){
+                if(!dict.containsKey(w+msg.charAt(idx))){   // dict에 없을때
+                    break;
+                }else{  // dict에 존재할때
+                    w += msg.charAt(idx);
+                }
+                idx++;
+            }
+
+            ans.add(dict.get(w));
+            if(idx < msg.length()){
+                dict.put(w+msg.charAt(idx), dictIdx++);
+            }
+        }
+
+        answer = new int[ans.size()];
+        for(int i =0; i<ans.size(); i++){
+            answer[i] = ans.get(i);
+        }
+
+    }
+}
+
+class 압축_나의다른풀이 {
+    public static void main(String[] args) {
+        String msg = "TOBEORNOTTOBEORTOBEORNOT";
+        HashMap<String, Integer> dic = new HashMap<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        int dicIdx = 1;
+        for (int i='A'; i<='Z'; i++) {
+            dic.put(String.valueOf((char)i), dicIdx++); // HashMap을 사용할 경우 원소가 같은것이 있는지 확인하기 편하다(containsKey). HashMap을 구성할때 잘해야함.
+        }
+
+        int cnt = 0;
+        while (cnt < msg.length()) {
+            String w = "";
+
+            while (cnt < msg.length()) {
+                if (dic.containsKey(w+msg.charAt(cnt))) {   // msg의 원소와 같은원소가 있을경우
+                    w += msg.charAt(cnt++);
+                } else {    // 같은 원소가 없을경우
+                    break;
+                }
+            }
+            // w에 해당하는 dic value값을 ans에 추가
+            ans.add(dic.get(w));
+            if (cnt < msg.length()) dic.put(w+msg.charAt(cnt), dicIdx++);
+        }
+
+        int[] ans2 = new int[ans.size()];
+        for (int i=0; i<ans.size(); i++) {
+            ans2[i] = ans.get(i);
+        }
+
+        System.out.println(Arrays.toString(ans2));
+
+
+    }
+}
+

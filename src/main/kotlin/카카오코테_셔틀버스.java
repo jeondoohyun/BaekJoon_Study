@@ -3,9 +3,11 @@ import java.util.*;
 public class 카카오코테_셔틀버스 {
     public static void main(String[] args) {
         
-        int n = 10;
-        int t = 60;
+        int n = 10; // 셔틀 운행횟수
+        int t = 60; // 셔틀 운행 간격
         int m = 45;  // 버스탑승 제한수
+
+        // 크루들 대기열 도착시간
         String[] timetable = {"23:59","23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59"};
 
         PriorityQueue<Integer> queue = new PriorityQueue<>();
