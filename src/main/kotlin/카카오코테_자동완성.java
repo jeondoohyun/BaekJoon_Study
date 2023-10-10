@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class 카카오코테_자동완성 {
-    // trie 트라이 알고리즘인데 무식하게 풀었다. trie알고리즘으로 다시 풀어보자
+    // trie 트라이 알고리즘(재귀함수 사용)인데 무식하게 풀었다. trie알고리즘으로 다시 풀어보자
     // tree와 비슷함
     public static void main(String[] args) {
         String[] words = { "abc","def","ghi","jklm" };
