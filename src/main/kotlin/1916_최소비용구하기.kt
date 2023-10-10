@@ -50,7 +50,6 @@ fun main(args: Array<String>) {
     }
 }
 
-// todo : 재귀함수 원리 확실히 정리 하기, 백준 입력 그대로 입력해서 디버그 해보기
 fun cost(index: Int, flag_result: Boolean) {    // 재귀함수를 사용하여 최소값 구해보기
     // 재귀함수 끝나는 시점 1) 인덱스가 bus_info 마지막 일때(마지막까지 완전탐색)
     // 시작 지점이 일치하고 도착지점도 일치 할때 그때 발생하는 비용을 구해서 최소 값이면 min_bus에 넣는다

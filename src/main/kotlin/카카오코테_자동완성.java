@@ -42,7 +42,7 @@ class 자동완성_trie {
 
     public static void main(String[] args) {
 
-        String[] words = { "abc","def","ghi","jklm" };
+        String[] words = { "go","gone","guild" };
 
         int answer = 0;
         answer = solve(words);
@@ -50,7 +50,7 @@ class 자동완성_trie {
     }
 
     public static class Node {
-        HashMap<Character, Node> child = new HashMap();
+        HashMap<Character, Node> child = new HashMap(); // HashMap()으로 Node를 계속 이어줘서 가지 모양을 이어준다.
         boolean isEnd = false;
         int branchSum = 0;
     }
@@ -61,20 +61,20 @@ class 자동완성_trie {
 
         public Trie(){
             root = new Node();
-        }
+        }   // 객체생성 한 Trie의 root는 계속 똑같다. Trie a = new Trie() a의 root는 같은 Node()
 
-        public void insert(String word){
+        public void insert(String word){    // node 만들기
 
             Node current = root;
 
             for(Character c : word.toCharArray()){
                 if(current.child.get(c) == null){
-                    Node node = new Node();
-                    current.child.put(c, node);
-                    current = node;
+                    Node node = new Node(); // 새로운 child를 이어 주기 위해 Node()새로 생성하여 put으로 넣어준다.
+                    current.child.put(c, node); // 어쨋든 첫 current는 root이기때문에 root안에 새로운 node를 심어주는것.
+                    current = node; // 새로 생성한 Node()를 current로 넣어줘 current를 바꿔준다. 이 Node의 마지막에 isEnd를 true처리.
                 }
                 else
-                    current = current.child.get(c);
+                    current = current.child.get(c);     // go에서 gone을 추가 할때는 go까지는 current.child.get(c) != null 이기 때문에 기존에 있는 Node를 사용.
             }
             current.isEnd = true;
         }

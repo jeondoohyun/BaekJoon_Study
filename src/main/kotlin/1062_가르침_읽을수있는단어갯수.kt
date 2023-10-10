@@ -14,24 +14,28 @@ var answer=0
 
 fun count(words : Array<String>, n : Int) : Int{
     var cnt=0
-    for(i in 0 until n){    // antarctica 단어를 검사 한다고 하면 처음과 끝의 anta, tica를 제외한 가운데 rc를 검사 한다.
+    for(i in 0 until n){    // n:단어갯수 antarctica
         var j=4
-        while(j<words[i].length-3){     // words의 단어는 최소 알파벳8개 여야함, 단어가 되려면 anta로시작 tica로 끝나야 하기 때문에 최소 8글자는 되야함. 그래야 cnt를 셀수있음
+        // 단어를 검사 한다고 하면 처음과 끝의 anta, tica를 제외한 가운데 rc를 검사 한다.
+        var len = words[i].length-3
+        while(j<len){     // words의 단어는 최소 알파벳8개 여야함, 단어가 되려면 anta로시작 tica로 끝나야 하기 때문에 최소 8글자는 되야함. 그래야 cnt를 셀수있음
             if(!chk[words[i][j++]-'a'])break    // words의 2차 인덱스j는 문자열중에 char를 뽑은것, j가 4라서 5번째 알파벳을 확인(antarctica라면 r이 true인지 확인) ,j++라서 이 라인 벗어나야 1커짐
         }
-        if(j==words[i].length-3) cnt++  // leng-3과 길이가 같다는건 j++가 되면서 필수 알파벳을 제외한 모든 char와 비교를 완료했다는뜻
+        if(j==len) cnt++  // leng-3과 길이가 같다는건 j++가 되면서 필수 알파벳을 제외한 모든 char와 비교를 완료했다는뜻
     }
     return cnt
 }
 
 fun combination(idx : Int, cnt : Int, n : Int, k : Int, words : Array<String>){
 
-    // 체크해야할 알파벳이 3개일경우 재귀 함수가 3번 불려서 cnt가+3이 되어야 answer단어를 체크하기 시작
-    if(cnt==k){
+    // 체크해야할 알파벳이 3개일경우 재귀 함수가 3번 불려서 cnt가+3이 되어야(antic를 제외한 3가지 알파벳을 true로한것) count()로 answer단어를 체크하기 시작
+    if(cnt==k){ //??
         answer = max(answer,count(words,n))
         return
     }
 
+    // 재귀함수를 반복문이 감싸고 있는경우 return을 만나도 재귀함수가 끝나지 않는다. 반복문이 없는 재귀함수는 return을 한번만 만나도 종료됨.
+    // return을 만난 재귀함수만 종료되고 for문의 다음 i값으로 다시 실행되어 다시 재귀함수 호출.
     for(i in idx until 26){
         if(chk[i])continue
         chk[i]=true
