@@ -120,3 +120,90 @@ class 자동완성_trie {
         return search(trie.root, 0);
     }
 }
+
+class 자동완성_다시풀기 {
+    // trie다시풀기
+    public static void main(String[] args) {
+        String[] words = { "word","war","warrior","world" };
+
+        // child 노드 만들기.
+        // branchSum 만들기
+
+        Trie trie = new Trie();
+        for (String e: words) {
+            trie.insert(e);
+        }
+
+        makeBranchSum(trie.root);
+        int result = search(trie.root, 0);
+        System.out.println(result);
+    }
+
+    static int makeBranchSum(Node current) {  // branchSum 설정
+
+//        int num = 0;
+        if (current.child.isEmpty() && current.isEnd) {
+            return 1;
+        }
+
+        for (Node e: current.child.values()) {
+            current.branchSum += makeBranchSum(e);  // e는 current의 child node
+        }
+
+        if (current.isEnd) {
+            current.branchSum += 1;
+        }
+        return current.branchSum;
+    }
+
+    static int search(Node current, int cnt) {
+        int temp = 0;
+
+        if (current.branchSum == 1) {
+            return cnt;
+        }
+
+        for (Node e: current.child.values()) {  // 줄기가 2줄기가 있다고 가정하면 한줄기를 재귀함수로 끝까지 탐색하고 모든 node에 대한 리턴을 받은 다음에 그다음 줄기를 처음부터 끝까지 탐색. 2줄기에 대한 리턴값은 temp에 저장됨
+            temp += search(e, cnt+1);
+        }
+
+        if (current.isEnd) {
+            temp += cnt;
+        }
+
+        return temp;
+    }
+
+    static class Node {
+        HashMap<String, Node> child = new HashMap<>();
+        int branchSum = 0;
+        Boolean isEnd = false;
+    }
+
+    // 클래스 생성
+    // 어떤 데이터를 필요로 하여 변수를 어떻게 생성 할것인지.
+    // 메소드를 사용하여 데이터에 값을 어떻게 넣을것인지.
+    static class Trie {
+
+        Node root = null;
+        Trie() {    // 생성자. 객체생성시 자동 실행.
+            root = new Node();
+        }
+
+        void insert(String word) {
+            Node current = root;
+
+            for(int i=0; i<word.length(); i++) {
+                String s = String.valueOf(word.charAt(i));
+                if (current.child.containsKey(s)) { // a node를 이미 가지고 있다.
+                    current = current.child.get(s); // 현재 current에 child node를 넣어준다.
+                } else {    // a node를 가지고 있지 않다. 새로 child를 추가 해줘야함
+                    Node n = new Node();
+                    current.child.put(s, n);
+                    current = current.child.get(s);
+                }
+            }
+            current.isEnd = true;
+        }
+    }
+}
