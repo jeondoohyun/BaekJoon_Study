@@ -5,15 +5,14 @@ import java.io.OutputStreamWriter
 import java.lang.Exception
 import java.util.*
 
-fun main(args: Array<String>) {
+fun main(args: Array<String>) = with(System.`in`.bufferedReader())  {
 
-    multitab = BooleanArray(6)
 
-    multitab[0] = true
-    multitab[1] = true
+    val n = readLine().toInt()
 
-//    multitab.forEach {
-//        println(it)
-//    }
-    println(multitab.count { it })
+    // 1일에 잡힌 상담 -> arr[0]일, arr[1]원
+    val arr = Array(n) { readLine().split(" ").map { it.toInt() } }
+    var a = readLine().toInt()
+
+
 }
