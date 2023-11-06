@@ -143,7 +143,7 @@ class 자동완성_다시풀기 {
 
 //        int num = 0;
         if (current.child.isEmpty() && current.isEnd) {
-            return 1;
+            return current.branchSum = 1;   // ex) 여기서 node current가 gone의 e라면 return만나서 호출된 부분으로 돌아갔을때의 current는 n이다
         }
 
         for (Node e: current.child.values()) {
