@@ -39,9 +39,19 @@ fun main(args: Array<String>) {
     // n : 슬라이딩 하는 횟수
     var n = s-p
     var tmpDnaArr = dnaArr
-    for (i in 0 until  n) {
-        tmpDnaArr = removeDna(dna[i], tmpDnaArr)
-        tmpDnaArr = addDna(dna[p+i], tmpDnaArr)
+
+    // 내가 짠 코드
+//    for (i in 0 until  n) {
+//        tmpDnaArr = removeDna(dna[i], tmpDnaArr)
+//        tmpDnaArr = addDna(dna[p+i], tmpDnaArr)
+//        if (checkCnt == 4) result++
+//    }
+
+    // p(부분문자열길이)에서 s(임의로만든dna길이)까지 하기 때문에 부분 문자열을 만들수 있는 횟수 만큼만 반복됨
+    for (end in p until  s) {
+        var start = end - p
+        tmpDnaArr = removeDna(dna[start], tmpDnaArr)
+        tmpDnaArr = addDna(dna[end], tmpDnaArr)
         if (checkCnt == 4) result++
     }
 
