@@ -11,6 +11,8 @@ fun main(args: Array<String>) = with(Scanner(System.`in`)) {
         time_minus_45 = (23 * 60) + (60 + (min - 45))   // (min - 45) 값은 음수임.
     }
 
+
+
     var hour_result = time_minus_45 / 60
     var min_result = time_minus_45 % 60
 
