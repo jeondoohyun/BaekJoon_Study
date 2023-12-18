@@ -6,6 +6,7 @@ import java.util.*
 var useButton = BooleanArray(10){true}
 fun main(args: Array<String>) {
 
+    // 1107 주어진 테스트 케이스는 다 맞는데 제출은 틀림
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
 
