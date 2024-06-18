@@ -1,0 +1,4 @@
+- Scanner, println, readLine등은 비효율적으로 느리다.
+- Scanner와 다르게 BufferedReader.readLine은 엔터로만 입력 완료된다(스페이스는 안됨)
+
+- java 백준 제출시에 class Main {}, public static void main(String[] args) {} 으로 제출해야함. import도 다함께 복붙 해야함. 패키지는 뺄것
