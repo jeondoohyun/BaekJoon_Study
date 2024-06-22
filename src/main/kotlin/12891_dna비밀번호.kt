@@ -22,8 +22,12 @@ fun main(args: Array<String>) {
     // c : 부분문자열에 포함되어야 할 {‘A’, ‘C’, ‘G’, ‘T’} 의 최소 개수
     var c = br.readLine().split(" ").map { it.toInt() }
 
-    var dnaArr = IntArray(4){0}
-    conditionArr = IntArray(4){0}
+    // dnaArr : 현재 상태배열
+    var dnaArr = IntArray(4) { 0 }
+
+    // conditionArr : 비밀번호 조건
+    conditionArr = IntArray(4) { 0 }
+
     for (i in c.indices) {  // 0 until c.size
         conditionArr[i] = c[i]
         if (c[i] == 0) checkCnt++   // 0개라는건 없어도 된다는거니까 무조건 조건충족이라 checkCnt를 +1
@@ -40,14 +44,8 @@ fun main(args: Array<String>) {
     var n = s-p
     var tmpDnaArr = dnaArr
 
-    // 내가 짠 코드
-//    for (i in 0 until  n) {
-//        tmpDnaArr = removeDna(dna[i], tmpDnaArr)
-//        tmpDnaArr = addDna(dna[p+i], tmpDnaArr)
-//        if (checkCnt == 4) result++
-//    }
-
     // p(부분문자열길이)에서 s(임의로만든dna길이)까지 하기 때문에 부분 문자열을 만들수 있는 횟수 만큼만 반복됨
+    // 부분문자열이 한칸씩 오른쪽으로 이동하기 때문에 이동 할때마다 왼쪽(start)의 문자는 빼주고 오른쪽(end)의 문자는 추가 해주면서 왼쪽 오른쪽 문자만 갯수를 갱신해준다
     for (end in p until  s) {
         var start = end - p
         tmpDnaArr = removeDna(dna[start], tmpDnaArr)
