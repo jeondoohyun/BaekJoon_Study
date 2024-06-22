@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     // m: 갑옷을 만드는데 필요한 숫자
     var m = br.readLine().toInt()
 
-    var arrNum = br.readLine().split(" ").map { it.toInt() }.sorted()
+    var arrNum = br.readLine().split(" ").map { it.toInt() }.sorted()   // split으로 나눈후 int 변환후 바로 오름차순 정렬
 
     var result_1940 = 0
 
